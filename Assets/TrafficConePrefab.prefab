@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33793294828720484}
   - component: {fileID: 23576785604068308}
   - component: {fileID: 65449131706403904}
+  - component: {fileID: 114282202769482392}
   m_Layer: 0
   m_Name: TrafficConePrefab
   m_TagString: TrafficConeTag
@@ -96,3 +97,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 5, z: 3}
   m_Center: {x: 0, y: -0.8, z: 0}
+--- !u!114 &114282202769482392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1035939864571576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cc41406f5a53e49bf2bb984d157af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

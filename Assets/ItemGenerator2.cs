@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemGenerator : MonoBehaviour {
+public class ItemGenerator2 : MonoBehaviour {
 
     //carPrefabを入れる
     public GameObject carPrefab;
@@ -17,10 +17,32 @@ public class ItemGenerator : MonoBehaviour {
     //アイテムを出すx方向の範囲
     private float posRange = 3.4f;
 
+    //Unityちゃんのオブジェクト
+    private GameObject unitychan;
+
+   
+
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
 
+        //Unityちゃんのオブジェクトを取得
+        this.unitychan = GameObject.Find("unitychan");
+
+        Itemseisei();
+    }
+
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+
+    public void Itemseisei()
+    {
 
         //一定の距離ごとにアイテムを生成
         for (int i = startPos; i < goalPos; i += 15)
@@ -58,20 +80,11 @@ public class ItemGenerator : MonoBehaviour {
                         //車を生成
                         GameObject car = Instantiate(carPrefab) as GameObject;
                         car.transform.position = new Vector3(posRange * j, car.transform.position.y, i + offsetZ);
-                       
+
                     }
                 }
             }
         }
-
-
-
-    }
-
-
-    // Update is called once per frame
-    void Update () {
-
 
 
     }
