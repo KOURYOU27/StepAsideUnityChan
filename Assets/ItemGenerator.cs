@@ -17,13 +17,40 @@ public class ItemGenerator : MonoBehaviour {
     //アイテムを出すx方向の範囲
     private float posRange = 3.4f;
 
+    //次にアイテムを生成する z 座標
+    float nextItemGeneratePosition;
+    //unityちゃん
+    GameObject unitychan;
+
 
     // Use this for initialization
     void Start () {
 
+        //unityちゃんゲームオブジェクト取得
+        unitychan = GameObject.Find("unitychan");
+       
+        //nextItemGeneratePositionの値
+        nextItemGeneratePosition = unitychan.transform.position.z + 15;
 
-        //一定の距離ごとにアイテムを生成
-        for (int i = startPos; i < goalPos; i += 15)
+
+    }
+
+
+    // Update is called once per frame
+    void Update () {
+
+
+
+        //unityちゃんのｚ位置とnextItemGeneratePositionの値が同じになったら
+        if (unitychan.transform.position.z >= nextItemGeneratePosition)
+        {
+            
+            //nextItemGeneratePositionの値を更新
+            nextItemGeneratePosition = unitychan.transform.position.z + 100;
+
+
+            //unityちゃんのｚ位置＋５０と、nextItemGeneratePositionの間にアイテムを生成
+            for (float i = unitychan.transform.position.z + 50; i < nextItemGeneratePosition; i += 15)
         {
             //どのアイテムを出すのかをランダムに設定
             int num = Random.Range(1, 11);
@@ -58,19 +85,16 @@ public class ItemGenerator : MonoBehaviour {
                         //車を生成
                         GameObject car = Instantiate(carPrefab) as GameObject;
                         car.transform.position = new Vector3(posRange * j, car.transform.position.y, i + offsetZ);
-                       
+
                     }
                 }
             }
         }
 
 
-
     }
 
 
-    // Update is called once per frame
-    void Update () {
 
 
 
